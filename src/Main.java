@@ -10,14 +10,15 @@ public class Main {
         habilidades.add("visão de raio-x");
         habilidades.add("voar");
         habilidades.add("super velocidade");
-        habilidades.add("sopro congelante");
 
-        SuperHeroi h = new SuperHeroi(
+        List<Personagem> personagens = new ArrayList<>();
+        personagens.add(new SuperHeroi(
                 "Lisiane Reips",
                 Sexo.MULHER,
                 1.75,
                 true,
                 "Lisiane Reips",
+<<<<<<< HEAD
                 "Super-Girl",
                 habilidades
         );
@@ -46,12 +47,37 @@ public class Main {
         System.out.println(v.apresentar());
         System.out.println(c.apresentar());
 
+=======
+                habilidades));
+        personagens.add(new Vilao(
+                "Dr. Caos",
+                Sexo.HOMEM,
+                1.88,
+                8));
+        personagens.add(new Civil(
+                "Ana Paula",
+                Sexo.MULHER,
+                1.62));
 
-        // Teste da cópia defensiva
-        List<String> copia = h.getHabilidades();
-        copia.add("teletransporte");
+        System.out.println("============");
+        for (Personagem personagem : personagens) {
+            System.out.println(personagem);
+            System.out.println(personagem.apresentar());
+            personagem.agir();
+            System.out.println();
+        }
 
-        System.out.println("\nLista do objeto:");
-        h.mostrar();
+        System.out.println("=== SOBRECARGA: usarHabilidade() ===");
+        SuperHeroi heroi = (SuperHeroi) personagens.get(0);
+>>>>>>> Gustavo-Souza31-em_desenvolvimento
+
+        System.out.println(heroi.usarHabilidade());
+
+        System.out.println(heroi.usarHabilidade(2));
+
+        System.out.println(heroi.usarHabilidade(99));
+
+        System.out.println(heroi.usarHabilidade("voar"));
+        System.out.println(heroi.usarHabilidade("teletransporte"));
     }
 }
