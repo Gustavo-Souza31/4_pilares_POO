@@ -1,19 +1,36 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
+
     public static void main(String[] args) {
-        SuperHeroi h = new SuperHeroi();
-        h.nome = "Lisiane Reips";
-        h.sexo = Sexo.MULHER;
-        h.altura = 1.75;
-        h.identidadeSecreta = true;
-        h.habilidades = new String[]{"super força", "visão de raio-x", "voar",
-                "super velocidade", "sopro congelante"};
+
+        List<String> habilidades = new ArrayList<>();
+        habilidades.add("super força");
+        habilidades.add("visão de raio-x");
+        habilidades.add("voar");
+        habilidades.add("super velocidade");
+        habilidades.add("sopro congelante");
+
+        SuperHeroi h = new SuperHeroi(
+                "Lisiane Reips",
+                Sexo.MULHER,
+                1.75,
+                true,
+                "Lisiane Reips",
+                habilidades
+        );
+
         h.mostrar();
 
-        // O vilão consegue fazer isto. Por quê?
-        h.altura = -300;
-        h.nome = "";
-        h.mostrar();
+        System.out.println(h.getIdentidade());
+        System.out.println(h.revelarIdentidade());
 
-        Personagem personagem = new Personagem("Alex", Sexo.OUTRO, 1.75);
+        // Teste da cópia defensiva
+        List<String> copia = h.getHabilidades();
+        copia.add("teletransporte");
+
+        System.out.println("\nLista do objeto:");
+        h.mostrar();
     }
 }

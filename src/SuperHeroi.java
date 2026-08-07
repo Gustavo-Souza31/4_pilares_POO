@@ -1,15 +1,51 @@
-// NÃO ALTERE ANTES DE LER OS PASSOS
-public class SuperHeroi {
-    public String nome;
-    public Sexo sexo;                // 1=Mulher, 2=Homem, 3=Outro, 4=Prefiro não dizer
-    public double altura;
-    public boolean identidadeSecreta;
-    public String[] habilidades;
+import java.util.ArrayList;
+import java.util.List;
+
+public class SuperHeroi extends Personagem {
+
+    private boolean identidadeSecreta;
+    private String identidadeReal;
+    private List<String> habilidades;
+
+    public SuperHeroi(String nome, Sexo sexo, double altura,
+                      boolean identidadeSecreta,
+                      String identidadeReal,
+                      List<String> habilidades) {
+
+        super(nome, sexo, altura);
+
+        this.identidadeSecreta = identidadeSecreta;
+        this.identidadeReal = identidadeReal;
+        this.habilidades = new ArrayList<>(habilidades);
+    }
+
+    @Override
+    public String apresentar() {
+        return "Meu nome é " + getNome();
+    }
+
+    public String getIdentidade() {
+        if (identidadeSecreta) {
+            return "??? (identidade protegida)";
+        }
+        return identidadeReal;
+    }
+
+    public String revelarIdentidade() {
+        return identidadeReal;
+    }
+
+    public List<String> getHabilidades() {
+        return new ArrayList<>(habilidades);
+    }
 
     public void mostrar() {
-        System.out.println(nome + " - " + sexo + " - " + altura);
-        for (int i = 0; i < habilidades.length; i++) {
-            System.out.println(habilidades[i]);
+        System.out.println(getNome() + " - " +
+                getSexo().getDescricao() + " - " +
+                getAltura());
+
+        for (String h : habilidades) {
+            System.out.println(h);
         }
     }
 }

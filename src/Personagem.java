@@ -2,15 +2,23 @@ public abstract class Personagem {
 
     private String nome;
     private Sexo sexo;
-    private float altura;
+    private double altura;
 
-    public Personagem(String nome, Sexo sexo, float altura ) {
+    public Personagem(String nome, Sexo sexo, double altura) {
+
+        if (nome == null || nome.trim().isEmpty()) {
+            throw new IllegalArgumentException("Nome inválido.");
+        }
+
+        if (altura < 0.5 || altura > 3.0) {
+            throw new IllegalArgumentException("Altura inválida.");
+        }
 
         this.nome = nome;
         this.sexo = sexo;
         this.altura = altura;
-
     }
+
     public String getNome() {
         return nome;
     }
@@ -19,7 +27,7 @@ public abstract class Personagem {
         return sexo;
     }
 
-    public float getAltura() {
+    public double getAltura() {
         return altura;
     }
 
