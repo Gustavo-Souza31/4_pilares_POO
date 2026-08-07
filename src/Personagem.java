@@ -32,4 +32,11 @@ public abstract class Personagem {
     }
 
     public abstract String apresentar();
+
+    public abstract void agir();
+
+    @Override
+    public String toString() {
+        return nome + " - " + sexo.getDescricao() + " - " + altura;
+    }
 }
