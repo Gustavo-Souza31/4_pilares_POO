@@ -18,13 +18,34 @@ public class Main {
                 1.75,
                 true,
                 "Lisiane Reips",
+                "Super-Girl",
                 habilidades
         );
+
+        Vilao v = new Vilao(
+                "Zeus",
+                Sexo.HOMEM,
+                2.80,
+                10
+        );
+
+        Civil c = new Civil(
+                "Afonso",
+                Sexo.PREFIRO_NAO_DIZER,
+                1.76,
+                "Dev Web Sênior"
+        );
+
+
 
         h.mostrar();
 
         System.out.println(h.getIdentidade());
         System.out.println(h.revelarIdentidade());
+        System.out.println(h.apresentar());
+        System.out.println(v.apresentar());
+        System.out.println(c.apresentar());
+
 
         // Teste da cópia defensiva
         List<String> copia = h.getHabilidades();

@@ -5,11 +5,13 @@ public class SuperHeroi extends Personagem {
 
     private boolean identidadeSecreta;
     private String identidadeReal;
+    private String nomeDeGuerra;
     private List<String> habilidades;
 
     public SuperHeroi(String nome, Sexo sexo, double altura,
                       boolean identidadeSecreta,
                       String identidadeReal,
+                      String nomeDeGuerra,
                       List<String> habilidades) {
 
         super(nome, sexo, altura);
